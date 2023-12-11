@@ -49,11 +49,7 @@ app.post('/signup', async (req, res) => {
 			info: 'Successfully Registered',
 		});
 	} else {
-		if (
-			check.name === req.body.name &&
-			check.emailaddress === req.body.emailaddress &&
-			check.password === req.body.password
-		) {
+		if (check.name === req.body.name) {
 			res.status(201).render('signup', { msg: 'User already exists!!!' });
 		} else {
 			await dbcol.insertMany([data]);
